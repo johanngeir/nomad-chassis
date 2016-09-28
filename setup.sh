@@ -1,5 +1,4 @@
 #!/bin/sh
-sudo su -
 
 locale-gen is_IS.UTF-8
 
@@ -13,6 +12,7 @@ usermod -aG docker $(whoami)
 
 # install consul
 curl https://releases.hashicorp.com/consul/0.7.0/consul_0.7.0_linux_amd64.zip | sudo bsdtar -xzf- -C /usr/local/bin/
+mkdir /etc/consul.d
 
 # install nomad 
 curl https://releases.hashicorp.com/nomad/0.4.1/nomad_0.4.1_linux_amd64.zip | sudo bsdtar -xzf- -C /usr/local/bin/
