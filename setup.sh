@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/sh
 
 sudo locale-gen is_IS.UTF-8
 
