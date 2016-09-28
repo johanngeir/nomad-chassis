@@ -18,3 +18,7 @@ mkdir /etc/consul.d
 curl https://releases.hashicorp.com/nomad/0.4.1/nomad_0.4.1_linux_amd64.zip | sudo bsdtar -xzf- -C /usr/local/bin/
 
 chmod guo+x /usr/local/bin/*
+
+ipaddr=$(ip addr | awk '/inet/ && /ens/{sub(/\/.*$/,"",$2); print $2}')
+echo Consul start:
+echo consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -bind=$ipaddr -config-dir /etc/consul.d
