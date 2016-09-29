@@ -21,10 +21,12 @@ curl https://releases.hashicorp.com/nomad/0.4.1/nomad_0.4.1_linux_amd64.zip | su
 chmod guo+x /usr/local/bin/*
 
 ipaddr=$(ip addr | awk '/inet/ && /ens/{sub(/\/.*$/,"",$2); print $2}')
-echo \n\nConsul seed start:
-echo consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -bind=$ipaddr -config-dir /etc/consul.d
+#echo \n\nConsul seed start:
+#echo consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -bind=$ipaddr -config-dir /etc/consul.d
 
 sudo wget -O /etc/nomad.d/ https://raw.githubusercontent.com/johanngeir/nomad-chassis/master/server.hcl
+sudo wget -O /usr/local/bin/ https://raw.githubusercontent.com/johanngeir/nomad-chassis/master/seed-consul.sh
+sudo wget -O /usr/local/bin/ https://raw.githubusercontent.com/johanngeir/nomad-chassis/master/start-nomad.sh
 
 echo \nNomad seed start
 echo sudo nomad agent -config server.hcl
