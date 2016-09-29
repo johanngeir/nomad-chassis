@@ -2,9 +2,9 @@
 
 locale-gen is_IS.UTF-8
 
-apt update
-apt upgrade
-apt install unzip bsdtar
+apt -y update
+apt -y upgrade
+apt -y install unzip bsdtar wget
 
 # install docker
 curl -sSL https://get.docker.com/ | sh
