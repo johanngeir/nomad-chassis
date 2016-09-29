@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#https://raw.githubusercontent.com/johanngeir/nomad-chassis/master/setup.sh
+
 locale-gen is_IS.UTF-8
 
 apt -y update
