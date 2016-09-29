@@ -4,7 +4,7 @@ locale-gen is_IS.UTF-8
 
 apt update
 apt upgrade
-apt install curl unzip bsdtar
+apt install unzip bsdtar
 
 # install docker
 curl -sSL https://get.docker.com/ | sh
@@ -37,7 +37,7 @@ server {
 
     # Self-elect, should be 3 or 5 for production
     bootstrap_expect = 3
-}' > /etc/nomad.d/server.hcl "
+}' | sudo tee /etc/nomad.d/server.hcl > /dev/null "
 
 echo \nNomad seed start
 echo sudo nomad agent -config server.hcl
