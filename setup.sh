@@ -24,20 +24,7 @@ ipaddr=$(ip addr | awk '/inet/ && /ens/{sub(/\/.*$/,"",$2); print $2}')
 echo \n\nConsul seed start:
 echo consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -bind=$ipaddr -config-dir /etc/consul.d
 
-echo \nNomad config:
-echo "echo '# Increase log verbosity
-log_level = "DEBUG"
-
-# Setup data dir
-data_dir = "/tmp/server1"
-
-# Enable the server
-server {
-    enabled = true
-
-    # Self-elect, should be 3 or 5 for production
-    bootstrap_expect = 3
-}' | sudo tee /etc/nomad.d/server.hcl > /dev/null "
+sudo wget -O /etc/nomad.d/ https://raw.githubusercontent.com/johanngeir/nomad-chassis/master/server.hcl
 
 echo \nNomad seed start
 echo sudo nomad agent -config server.hcl
