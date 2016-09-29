@@ -1,1 +1,1 @@
-sudo nomad agent -config server.hcl
+sudo nomad agent -config /etc/nomad.d/server.hcl

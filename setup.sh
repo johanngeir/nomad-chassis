@@ -23,3 +23,4 @@ wget -O /usr/local/bin/seed-consul.sh https://raw.githubusercontent.com/johannge
 wget -O /usr/local/bin/start-nomad.sh https://raw.githubusercontent.com/johanngeir/nomad-chassis/master/start-nomad.sh
 
 chmod guo+x /usr/local/bin/*
+
