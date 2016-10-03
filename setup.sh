@@ -4,12 +4,12 @@
 
 BASE="https://raw.githubusercontent.com/johanngeir/nomad-chassis/master/"
 
-function get {
+get() {
 	FILE=$BASE/$1
 	wget -O /tmp/nomad-chassis/$1 $BASE/$1
 }
 
-function run {
+run() {
 	FILE=$BASE/$1
 	wget -O /tmp/nomad-chassis/$1 $BASE/$1
 	/tmp/nomad-chassis/$1
